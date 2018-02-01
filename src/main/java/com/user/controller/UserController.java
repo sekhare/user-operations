@@ -73,12 +73,12 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/getuser/{email}", method = RequestMethod.GET)
-	public ResponseEntity<User> getUsermail(@PathVariable("email") String email) {
+	public User getUsermail(@PathVariable("email") String email) {
 		User result = userService.find(email);
 		if (result == null) {
-			return new ResponseEntity<User>(HttpStatus.NOT_FOUND);
+			return null;
 		} else {
-			return new ResponseEntity<User>(HttpStatus.OK);
+			return result;
 
 		}
 	}
