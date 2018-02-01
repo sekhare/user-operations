@@ -1,5 +1,7 @@
 package com.user.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,21 +24,33 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User updateuser() {
-		// TODO Auto-generated method stub
+	public User updateuser(String email,int id) {
+
+		User result=userRepo.update(email, id);
+		
 		return null;
 	}
 
 	@Override
-	public User delete() {
-		// TODO Auto-generated method stub
-		return null;
+	public User find(String email) {
+		
+		
+		User result=userRepo.getByEmail(email);
+		return result;
 	}
 
 	@Override
-	public User find() {
-		// TODO Auto-generated method stub
-		return null;
+	public void delete(User user) {
+		userRepo.delete(user);
+		
+		
 	}
+
+	@Override
+	public Iterable<User> findAll() {
+		
+		return  userRepo.findAll();
+	}
+
 
 }

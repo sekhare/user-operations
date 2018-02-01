@@ -1,5 +1,7 @@
 package com.user.service;
 
+import java.util.List;
+
 import com.user.model.User;
 
 /**
@@ -17,14 +19,20 @@ public interface UserService {
 	/**
 	 * @return
 	 */
-	public User updateuser();
+	public User updateuser(String email,int id);
 	/**
 	 * @return
 	 */
-	public User delete();
+	public void delete(User user);
 	/**
 	 * @return
 	 */
-	public User find();
+	public User find(String email);
+	
+	public Iterable<User> findAll();
+	
+	
+	
+	
 
 }

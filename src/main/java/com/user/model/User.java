@@ -14,17 +14,16 @@ import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-/**
- * @author sekhar
- *
- */
-@Entity
+@Entity(name = "userDetails")
 @Table(name = "users")
 public class User implements  Serializable {
 
 	
+
 	private String name;
-	
+
+
+
 	@Id
 	private String email;
 	private String password;
@@ -40,7 +39,7 @@ public class User implements  Serializable {
 		return email;
 	}
 	
-		@Override
+	@Override
 	public String toString() {
 		return "User [name=" + name + ", email=" + email + ", password="
 				+ password + ", lastLoginDate=" + lastLoginDate + "]";
